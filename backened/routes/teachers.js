@@ -56,11 +56,11 @@ router.post("/", async (req, res) => {
       phone: phone || "",
       experience: parseInt(experience) || 0,
       classes: parseInt(classes) || 1,
-      totalStudents: parseInt(totalStudents) || 0, // ✅ ADDED
-      rating: parseFloat(rating) || 4.5, // ✅ ADDED
+      totalStudents: parseInt(totalStudents) || 0, 
+      rating: parseFloat(rating) || 4.5, 
       schedule: schedule || '',
       status: status || 'active',
-      joinDate: joinDate || new Date() // ✅ ADDED
+      joinDate: joinDate || new Date() 
     });
 
     console.log('✅ Teacher created successfully:', teacher.name);
@@ -89,15 +89,15 @@ router.post("/", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
   try {
-    console.log('✏️ UPDATE Teacher Request:', req.body); // Debug log
+    console.log('✏️ UPDATE Teacher Request:', req.body); 
     
     const updateData = {
       ...req.body,
       // Ensure numeric fields are numbers
       experience: parseInt(req.body.experience) || 0,
       classes: parseInt(req.body.classes) || 1,
-      totalStudents: parseInt(req.body.totalStudents) || 0, // ✅ ADDED
-      rating: parseFloat(req.body.rating) || 4.5 // ✅ ADDED
+      totalStudents: parseInt(req.body.totalStudents) || 0, 
+      rating: parseFloat(req.body.rating) || 4.5 
     };
 
     const teacher = await Teacher.findByIdAndUpdate(

@@ -21,7 +21,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-// ✅ CREATE new class - صرف ایک POST route
 router.post("/", async (req, res) => {
   try {
     console.log('📝 Creating new class - Request Body:', req.body);
@@ -49,7 +48,7 @@ router.post("/", async (req, res) => {
 
     console.log('🔄 Creating class object...');
     
-    // Create new class WITHOUT manually setting _id
+    
     const newClass = await Class.create({
       name,
       code: code.toUpperCase(),
@@ -85,7 +84,7 @@ router.post("/", async (req, res) => {
       });
     }
     
-    // Duplicate key error
+    
     if (error.code === 11000) {
       return res.status(400).json({ 
         success: false,
@@ -101,13 +100,11 @@ router.post("/", async (req, res) => {
   }
 });
 
-// ✅ DELETE class
 router.delete("/:id", async (req, res) => {
   try {
     const classId = req.params.id;
     console.log('🗑️ DELETE Request - ID:', classId);
     
-    // Delete by _id (string)
     const classObj = await Class.findOneAndDelete({ _id: classId });
     
     if (!classObj) {
@@ -134,7 +131,7 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-// ✅ UPDATE class
+
 router.put("/:id", async (req, res) => {
   try {
     const classId = req.params.id;

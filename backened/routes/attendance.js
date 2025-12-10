@@ -24,17 +24,17 @@ router.get("/", (req, res) => {
 
     let filteredRecords = [...attendanceRecords];
 
-    // Filter by date
+    
     if (date) {
       filteredRecords = filteredRecords.filter(record => record.date === date);
     }
 
-    // Filter by class
+    
     if (className) {
       filteredRecords = filteredRecords.filter(record => record.class === className);
     }
 
-    // Filter by student ID
+    
     if (studentId) {
       filteredRecords = filteredRecords.filter(record => record.studentId === studentId);
     }

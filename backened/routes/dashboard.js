@@ -34,7 +34,6 @@ router.get('/stats', async (req, res) => {
         const totalTeachers = teachersArray.length;
         const totalClasses = classesArray.length;
 
-        // TODAY'S ATTENDANCE STATS
         const today = new Date().toISOString().split('T')[0];
         const todayAttendance = attendanceArray.filter(record => {
             const recordDate = new Date(record.date).toISOString().split('T')[0];
